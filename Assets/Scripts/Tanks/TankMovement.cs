@@ -12,37 +12,60 @@ public class TankMovement : MonoBehaviour
 
     private void Awake() { m_Rigidbody = GetComponent<Rigidbody>(); }
 
+    public Transform turret;
+
     private void OnEnable()
-    {         // when the tank is turned on, make sure it is not kinematic         
-        m_Rigidbody.isKinematic = false; 
+    {
+        // when the tank is turned on, make sure it is not kinematic         
+        m_Rigidbody.isKinematic = false;
 
         // also reset the input values         
-        m_MovementInputValue = 0f;         
+        m_MovementInputValue = 0f;
         m_TurnInputValue = 0f;
     }
 
     private void OnDisable()
-    {         // when the tank is turned off, set it to kinematic so it stops moving         
-        m_Rigidbody.isKinematic = true;     }          
-    
+    {
+        // when the tank is turned off, set it to kinematic so it stops moving         
+        m_Rigidbody.isKinematic = true;
+    }
+
     // Update is called once per frame     
-    private void Update()     {         m_MovementInputValue = Input.GetAxis("Vertical");         m_TurnInputValue = Input.GetAxis("Horizontal");     } 
+    private void Update()
+    {
+        m_MovementInputValue = Input.GetAxis("Vertical");
+        m_TurnInputValue = Input.GetAxis("Horizontal");
+    }
 
-        private void FixedUpdate() { Move(); Turn(); }
+    private void FixedUpdate()
+    {
+        Move();
+        Turn();
+    }
 
-        private void Move()
-        {         // create a vector in the direction the tank is facing with a magnitude          // based on the input, speed and time between frames         
-        Vector3 movement = transform.forward * m_MovementInputValue * m_Speed * Time.deltaTime; 
+    private void Move()
+    {
+        // create a vector in the direction the tank is facing with a magnitude          // based on the input, speed and time between frames         
+        Vector3 movement = transform.forward * m_MovementInputValue * m_Speed * Time.deltaTime;
 
-            // Apply this movement to the rigidbody's position         
-        m_Rigidbody.MovePosition(m_Rigidbody.position + movement);     } 
+        // Apply this movement to the rigidbody's position         
+        m_Rigidbody.MovePosition(m_Rigidbody.position + movement);
+    }
 
-            private void Turn()
-            {         // determine the number of degrees to be turned based on the input,   // speed and time between frames         
-        float turn = m_TurnInputValue * m_TurnSpeed * Time.deltaTime; 
+    private void Turn()
+    {
+        // determine the number of degrees to be turned based on the input,   // speed and time between frames         
+        float turn = m_TurnInputValue * m_TurnSpeed * Time.deltaTime;
 
         // make this into a rotation in the y axis         
-        Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f); 
+        Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
 
-// apply this rotation to the rigidbody's rotation         
-        m_Rigidbody.MoveRotation(m_Rigidbody.rotation * turnRotation);     } }
+        Quaternion turretRot = turret.rotation;
+
+        // apply this rotation to the rigidbody's rotation         
+        m_Rigidbody.MoveRotation(m_Rigidbody.rotation * turnRotation);
+
+        if (m_TurnInputValue != 0)
+            turret.rotation = turretRot;
+    }
+}

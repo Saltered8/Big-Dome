@@ -2529,12 +2529,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 592823307}
-  m_LocalRotation: {x: 0.17578961, y: -0.008590563, z: 0.0015340801, w: 0.98438907}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.17578962, y: -0.008590563, z: 0.0015340802, w: 0.98438907}
+  m_LocalPosition: {x: -0.000010554959, y: -1.0796412, z: 0.025321364}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 288947801}
-  m_Father: {fileID: 1348192028}
+  m_Father: {fileID: 765062000}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 20.25, y: -1, z: 0}
 --- !u!114 &592823309
@@ -3029,6 +3029,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: fd2dce29d25410843a8bd5c0443a3189,
     type: 3}
   m_PrefabInstance: {fileID: 868320350}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &765062000 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7021412274650899165, guid: 503939032bb0fb5479fe61adcb85cf13,
+    type: 3}
+  m_PrefabInstance: {fileID: 7021412274571548073}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &769361937
 PrefabInstance:
@@ -4822,12 +4828,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd2dce29d25410843a8bd5c0443a3189, type: 3}
---- !u!4 &1348192028 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7021412274650899159, guid: 503939032bb0fb5479fe61adcb85cf13,
-    type: 3}
-  m_PrefabInstance: {fileID: 7021412274571548073}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1362392205 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: fd2dce29d25410843a8bd5c0443a3189,
@@ -8737,6 +8737,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 1.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 7021412273855464461, guid: 503939032bb0fb5479fe61adcb85cf13,
+        type: 3}
+      propertyPath: turret
+      value: 
+      objectReference: {fileID: 765062000}
+    - target: {fileID: 7021412274343748673, guid: 503939032bb0fb5479fe61adcb85cf13,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7021412274343748673, guid: 503939032bb0fb5479fe61adcb85cf13,
+        type: 3}
+      propertyPath: speed
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 7021412274650899159, guid: 503939032bb0fb5479fe61adcb85cf13,
         type: 3}
