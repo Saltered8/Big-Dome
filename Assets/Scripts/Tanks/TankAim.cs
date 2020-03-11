@@ -25,7 +25,7 @@ public class TankAim : MonoBehaviour
         //    transform.eulerAngles = transform.eulerAngles.y * Vector3.up;
         //}
 
-        Cursor.visible = false;
-        transform.eulerAngles += Vector3.up * Input.GetAxis("Mouse X")*speed;
+
+        transform.eulerAngles += Vector3.up * Input.GetAxis("Mouse X")*speed * Time.deltaTime;
     }
 }
