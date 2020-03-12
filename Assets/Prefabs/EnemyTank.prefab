@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3675548967344389476
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6975705882689717027}
+  m_Layer: 0
+  m_Name: Transform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6975705882689717027
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3675548967344389476}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.537, z: 1.69}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5569613121756265934}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5569613121756422624
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,6 +157,8 @@ GameObject:
   - component: {fileID: 5569613122908162078}
   - component: {fileID: 5569613122908162049}
   - component: {fileID: 5569613122908162050}
+  - component: {fileID: 2036514019}
+  - component: {fileID: 2036514020}
   m_Layer: 0
   m_Name: EnemyTank
   m_TagString: Untagged
@@ -141,7 +173,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5569613121756422628}
-  m_LocalRotation: {x: -0, y: -0.4725809, z: -0, w: 0.8812873}
+  m_LocalRotation: {x: 0, y: -0.4725815, z: 0, w: 0.881287}
   m_LocalPosition: {x: 7.800799, y: 0.026168466, z: 0.28994375}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children:
@@ -226,7 +258,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_CloseDistance: 8
-  m_Turret: {fileID: 0}
+  m_Turret: {fileID: 5569613121756265934}
+--- !u!114 &2036514019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5569613121756422628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fcc41cff15d3f54aa9e9630216edb43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Shell: {fileID: 1697476034191614184, guid: 4b234bd4688d252458bb81a3910c12ea, type: 3}
+  m_FireTransform: {fileID: 6975705882689717027}
+  m_LaunchForce: 30
+  m_ShootDelay: 1
+--- !u!114 &2036514020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5569613121756422628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83a54c858a555ec4eaa66100140e14e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StartingHealth: 100
+  m_ExplosionPrefab: {fileID: 122668, guid: 5f53e2b760f0b2a4c8b27bb6f25b3c90, type: 3}
 --- !u!1 &5569613121756422630
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,7 +476,8 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.000010554959, y: 1.0796412, z: -0.025321364}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 6975705882689717027}
   m_Father: {fileID: 5569613121756265920}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

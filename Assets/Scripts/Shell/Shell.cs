@@ -4,6 +4,22 @@ using UnityEngine;
 
 public class Shell : MonoBehaviour
 {
+    private float CalculateDamage(Vector3 targetPosition)
+    {
+        // Create a vector from the shell to the target
+        Vector3 explosionToTarget = targetPosition - transform.position;
+        // Calculate the distance from the shell to the target
+        float explosionDistance = explosionToTarget.magnitude;
+        // Calculate the proportion of the maximum distance (the explosionRadius)
+        // the target is away
+        float relativeDistance =
+       (m_ExplosionRadius - explosionDistance) / m_ExplosionRadius;
+        // Calculate damage as this proportion of the maximum possible damage
+        float damage = relativeDistance * m_MaxDamage;
+        // Make sure that the minimum damage is always 0
+        damage = Mathf.Max(0f, damage);
+        return damage;
+    }
 
     // The time in seconds before the shell is removed
     public float m_MaxLifeTime = 2f;
@@ -30,9 +46,23 @@ public class Shell : MonoBehaviour
         // find the rigidbody of the collision object         
         Rigidbody targetRigidbody = other.gameObject.GetComponent<Rigidbody>();
 
-        //    
-        // TODO: Add code here to damage the object (tank) we just collided with   
-        // 
+        // only tanks will have rigidbody scripts
+        if (targetRigidbody != null)
+        {
+            // Add an explosion force
+            targetRigidbody.AddExplosionForce(m_ExplosionForce,
+           transform.position, m_ExplosionRadius);
+            // find the TankHealth script associated with the rigidbody
+            TankHealth targetHealth = targetRigidbody.GetComponent<TankHealth>();
+            if (targetHealth != null)
+            {
+                // Calculate the amount of damage the target should take
+                // based on it's distance from the shell.
+                float damage = CalculateDamage(targetRigidbody.position);
+                // Deal this damage to the tank
+                targetHealth.TakeDamage(damage);
+            }
+        }
 
         // Unparent the particles from the shell        
         m_ExplosionParticles.transform.parent = null;
