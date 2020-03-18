@@ -5,13 +5,16 @@ using UnityEngine.UI;
 
 public class TankHealth : MonoBehaviour
 {
-    
- // The amount of health each tank starts with
- public float m_StartingHealth = 100f;
+
+    // The amount of health each tank starts with
+    public float m_StartingHealth = 100f;
 
     // A prefab that will be instantiated in Awake, then used whenever
     // the tank dies
     public GameObject m_ExplosionPrefab;
+
+    public Rigidbody[] parts;
+
     private float m_CurrentHealth;
     private bool m_Dead;
     // The particle system that will play when the tank is destroyed
@@ -61,9 +64,29 @@ public class TankHealth : MonoBehaviour
         // Play the particle system of the tank exploding
         m_ExplosionParticles.Play();
         // Turn the tank off
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
+        // Unparent Camera on death
+        Camera camera = GetComponentInChildren<Camera>();
+        if (camera)
+        {
+            camera.transform.parent = null;
+        }
+        // Tank falls apart on death
+        foreach (Rigidbody part in parts)
+        {
+            part.isKinematic = false;
+            part.GetComponent<Collider>().enabled = true;
+        }
+        GetComponentInChildren<TankAim>().enabled = false;
+        GetComponent<TankShooting>().enabled = false;
+        GetComponent<TankMovement>().enabled = false;
+        GetComponent<BoxCollider>().enabled = false;
+        GetComponent<EnemyTankMovement>().enabled = false;
+        GetComponent<EnemyTankShooting>().enabled = false;
     }
+
 }
+
 
 
 
