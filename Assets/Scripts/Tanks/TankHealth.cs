@@ -77,12 +77,18 @@ public class TankHealth : MonoBehaviour
             part.isKinematic = false;
             part.GetComponent<Collider>().enabled = true;
         }
-        GetComponentInChildren<TankAim>().enabled = false;
-        GetComponent<TankShooting>().enabled = false;
-        GetComponent<TankMovement>().enabled = false;
-        GetComponent<BoxCollider>().enabled = false;
-        GetComponent<EnemyTankMovement>().enabled = false;
-        GetComponent<EnemyTankShooting>().enabled = false;
+        if (gameObject.tag == "Player")
+        {
+            GetComponentInChildren<TankAim>().enabled = false;
+            GetComponent<TankShooting>().enabled = false;
+            GetComponent<TankMovement>().enabled = false;
+            GetComponent<BoxCollider>().enabled = false;
+        }
+        else
+        {
+            GetComponent<EnemyTankMovement>().enabled = false;
+            GetComponent<EnemyTankShooting>().enabled = false;
+        }
     }
 
 }
