@@ -30,7 +30,7 @@ public class EnemyTankMovement : MonoBehaviour
     }
     private void OnEnable()
     {         // when the tank is turned on, make sure it is not kinematic         
-        m_Rigidbody.isKinematic = false;
+        //m_Rigidbody.isKinematic = false;
     }
 
     private void OnDisable()
