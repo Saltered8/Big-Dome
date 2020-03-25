@@ -75,6 +75,8 @@ GameObject:
   - component: {fileID: 5569613121756265922}
   - component: {fileID: 5569613121755463142}
   - component: {fileID: 5569613121754496806}
+  - component: {fileID: 6333087409746932274}
+  - component: {fileID: 8596946530588057528}
   m_Layer: 0
   m_Name: TankTracksLeft
   m_TagString: Untagged
@@ -118,8 +120,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -145,7 +145,35 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6333087409746932274
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5569613121756422626}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.41947544, y: 0.8300531, z: 2.0955904}
+  m_Center: {x: -0.5617769, y: 0.521706, z: 0.0014435473}
+--- !u!54 &8596946530588057528
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5569613121756422626}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &5569613121756422628
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,7 +239,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 35
+  m_Radius: 13
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &5569613122908162078
 BoxCollider:
@@ -276,8 +304,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Shell: {fileID: 1697476034191614184, guid: 4b234bd4688d252458bb81a3910c12ea, type: 3}
   m_FireTransform: {fileID: 6975705882689717027}
-  m_LaunchForce: 40
-  m_ShootDelay: 5
+  m_LaunchForce: 30
+  m_ShootDelay: 1
 --- !u!114 &2036514020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,6 +320,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StartingHealth: 30
   m_ExplosionPrefab: {fileID: 122668, guid: 5f53e2b760f0b2a4c8b27bb6f25b3c90, type: 3}
+  parts:
+  - {fileID: 6217879997827077325}
+  - {fileID: 8596946530588057528}
+  - {fileID: 886771594073368957}
+  - {fileID: 2150456828954105561}
 --- !u!1 &5569613121756422630
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,6 +336,8 @@ GameObject:
   - component: {fileID: 5569613121756265926}
   - component: {fileID: 5569613121755463140}
   - component: {fileID: 5569613121754496804}
+  - component: {fileID: 9135234636386294917}
+  - component: {fileID: 6217879997827077325}
   m_Layer: 0
   m_Name: TankChassis
   m_TagString: Untagged
@@ -346,8 +381,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -374,7 +407,35 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &9135234636386294917
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5569613121756422630}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.88123083, y: 0.7700968, z: 2.3657782}
+  m_Center: {x: 0.012070072, y: 0.7741222, z: 4.5452186e-10}
+--- !u!54 &6217879997827077325
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5569613121756422630}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &5569613121756422636
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,6 +447,8 @@ GameObject:
   - component: {fileID: 5569613121756265932}
   - component: {fileID: 5569613121755463136}
   - component: {fileID: 5569613121754496800}
+  - component: {fileID: 7401210729272452414}
+  - component: {fileID: 886771594073368957}
   m_Layer: 0
   m_Name: TankTracksRight
   m_TagString: Untagged
@@ -429,8 +492,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -456,7 +517,35 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7401210729272452414
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5569613121756422636}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.44361264, y: 0.86628413, z: 2.0955904}
+  m_Center: {x: 0.5497083, y: 0.50359035, z: 0.0014435559}
+--- !u!54 &886771594073368957
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5569613121756422636}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &5569613121756422638
 GameObject:
   m_ObjectHideFlags: 0
@@ -468,6 +557,8 @@ GameObject:
   - component: {fileID: 5569613121756265934}
   - component: {fileID: 5569613121755463138}
   - component: {fileID: 5569613121754496802}
+  - component: {fileID: 7493063134883459871}
+  - component: {fileID: 2150456828954105561}
   m_Layer: 0
   m_Name: TankTurret
   m_TagString: Untagged
@@ -512,8 +603,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -539,4 +628,32 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7493063134883459871
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5569613121756422638}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2937052, y: 0.771361, z: 1.5983409}
+  m_Center: {x: 0.0000000791107, y: 0.33144057, z: 0.13782482}
+--- !u!54 &2150456828954105561
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5569613121756422638}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
