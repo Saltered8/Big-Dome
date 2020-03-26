@@ -14,7 +14,7 @@ public class TankShooting : MonoBehaviour
 
     public int numShells;
     public int maxShells = 1;
-    public float reloadTime = 2;
+    public float reloadTime = 6;
     public float reloadTimer;
     public Image reloadClock;
 
@@ -34,7 +34,8 @@ public class TankShooting : MonoBehaviour
             Fire();
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
+        //if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetButtonUp("Fire1"))
         {
             reloadTimer = reloadTime;
         }

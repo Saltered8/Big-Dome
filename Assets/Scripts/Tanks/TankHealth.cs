@@ -90,7 +90,10 @@ public class TankHealth : MonoBehaviour
             GetComponent<EnemyTankShooting>().enabled = false;
         }
     }
-
+    public bool isDead()
+    {
+        return m_Dead;
+    }
 }
 
 

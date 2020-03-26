@@ -11,11 +11,18 @@ public class EnemyTankShooting : MonoBehaviour
     // The force given to the shell when firing
     public float m_LaunchForce = 30f;
 
+    TankHealth playerHealth;
+
     public float m_ShootDelay = 1f;
     private bool m_CanShoot;
     private float m_ShootTimer;
     private void Awake()
     {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            playerHealth = player.GetComponent<TankHealth>();
+        }
         m_CanShoot = false;
         m_ShootTimer = 0;
     }
@@ -30,7 +37,7 @@ public class EnemyTankShooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (m_CanShoot == true)
+        if (m_CanShoot == true && playerHealth != null && playerHealth.isDead() == false)
         {
             m_ShootTimer -= Time.deltaTime;
             if (m_ShootTimer <= 0)
